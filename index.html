@@ -1,1 +1,25 @@
-<!doctype html><html lang=""><head><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>biometrex</title><script defer="defer" src="/js/chunk-vendors.3b834766.js"></script><script defer="defer" src="/js/app.96e4e764.js"></script><link href="/css/chunk-vendors.c0745bca.css" rel="stylesheet"><link href="/css/app.6e232370.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but biometrex doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app" class="app"></div></body></html>
+<!doctype html><html lang=""><head><link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/favicon.ico"><title>BioMetrex</title><script defer="defer" src="/js/chunk-vendors.3b834766.js"></script><script defer="defer" src="/js/app.2bc0f3f4.js"></script><link href="/css/chunk-vendors.c0745bca.css" rel="stylesheet"><link href="/css/app.81037651.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but biometrex doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app" class="app"></div><script>(function () {
+
+            if (typeof window.CustomEvent === "function") return false;
+
+            function CustomEvent(event, params) {
+                params = params || {bubbles: false, cancelable: false, detail: undefined};
+                var evt = document.createEvent('CustomEvent');
+                evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+                return evt;
+            }
+
+            CustomEvent.prototype = window.Event.prototype;
+
+            window.Event = window.CustomEvent = CustomEvent;
+        })();
+
+        function sendCustomEvent (name, json_object) {
+            try {json_object = JSON.parse(json_object);} catch (e) {console.log('invalid json')}
+
+            var event = new CustomEvent(name, {
+                detail: json_object
+            });
+
+            window.dispatchEvent(event)
+        }</script></body></html>
